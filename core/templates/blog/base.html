@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog do Roger{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{% static 'admin/css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}">
+
+    <style>
+        * {
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+        html, body {
+            height: 100%; /* Set the height of html and body to 100% */
+            margin: 0; /* Remove default margin */
+        }
+        body {
+            display: flex; /* Use flexbox layout */
+            flex-direction: column; /* Stack children vertically */
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4; /* Light background for contrast */
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .content {
+            flex: 1; /* Allow content to grow and fill the available space */
+            max-width: 800px; /* Center content with a max width */
+            margin: 20px auto; /* Center align */
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: #fff;
+        }
+        /* New styles for the blog list */
+        .blog-list {
+            list-style: none; /* Remove bullet points */
+            padding: 0; /* Remove default padding */
+        }
+        .blog-item {
+            padding: 15px; /* Add padding to each item */
+            margin: 10px 0; /* Add margin between items */
+            border: 1px solid #ddd; /* Optional: Add a border */
+            border-radius: 5px; /* Rounded corners for items */
+            background: #f9f9f9; /* Light background for items */
+        }
+        .blog-item a {
+            text-decoration: none; /* Remove underline from links */
+            font-weight: bold; /* Make the link bold */
+        }
+    </style>
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="{% url 'blog_list' %}">Blog do Roger</a>
+        </h1>
+    </header>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 My Blog</p>
+    </footer>
+
+    <script src="{% static 'admin/js/core.js' %}"></script>
+    <script src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
+    <script src="{% static 'admin/js/actions.js' %}"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

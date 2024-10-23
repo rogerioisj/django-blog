@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Blog List{% endblock %}
+
+{% block content %}
+<h1>Artigos</h1>
+<ul>
+    {% for blog in blogs %}
+    <li>
+        <a href="{% url 'blog_detail' blog.pk %}">{{ blog.title }}</a>
+        <p>Publicado em: {{ blog.created_at }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
